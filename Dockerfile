@@ -18,9 +18,6 @@ RUN cd ./server && go build -mod=vendor -ldflags '-w -s' -a -installsuffix cgo -
 
 FROM arm64v8/alpine
 
-# copy static ffmpeg to use later 
-COPY --from=ffmpeg /usr/local /usr/local
-
 # install additional dependencies for ffmpeg
 RUN apk add --no-cache --update libgcc libstdc++ ca-certificates libcrypto1.1 libssl1.1 libgomp expat ffmpeg
 
